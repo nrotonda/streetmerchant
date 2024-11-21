@@ -36,7 +36,8 @@ export type Brand =
   | 'sony'
   | 'ubiquiti'
   | 'xfx'
-  | 'zotac';
+  | 'zotac'
+  | 'pokemon';
 
 export type Series =
   | 'test:series'
@@ -71,7 +72,8 @@ export type Series =
   | 'unvr'
   | 'unvr-pro'
   | 'xboxsx'
-  | 'xboxss';
+  | 'xboxss'
+  | 'scarlet-and-violet';
 
 export type Model =
   | 'test:model'
@@ -266,7 +268,8 @@ export type Model =
   | 'xlr8 verto'
   | 'xlr8 uprising'
   | 'xtreme'
-  | 'qick';
+  | 'qick'
+  | 'paldean fates';
 
 export type Link = {
   brand: Brand;

@@ -444,6 +444,7 @@ const store = {
       'unvr-pro': envOrNumber(process.env.MAX_PRICE_SERIES_UNVR_PRO),
       xboxss: envOrNumber(process.env.MAX_PRICE_SERIES_XBOXSS),
       xboxsx: envOrNumber(process.env.MAX_PRICE_SERIES_XBOXSX),
+      'scarlet-and-violet': envOrNumber(process.env.MAX_PRICE_SERIES_SCARLET_AND_VIOLET),
     },
   },
   microCenterLocation: envOrArray(process.env.MICROCENTER_LOCATION, ['web']),
