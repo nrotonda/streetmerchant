@@ -3,12 +3,15 @@ import {Store} from './store';
 export const Walmart: Store = {
   currency: '$',
   labels: {
-    inStock: {
+    inStock: [{
       container: '.button.spin-button.prod-ProductCTA--primary.button--primary',
       text: ['add to cart'],
-    },
+    }, {
+      container: '[data-automation-id="atc"]',
+      text: ['add to cart'],
+    }],
     maxPrice: {
-      container: 'span[class*="price-characteristic"]',
+      container: '[data-fs-element="price"]',
     },
   },
   links: [
@@ -72,6 +75,49 @@ export const Walmart: Store = {
       series: '3070',
       url: 'https://www.walmart.com/ip/804934537',
     },
+    {
+      brand: 'pokemon',
+      model: 'accessory pouch',
+      series: 'prismatic evolutions',
+      url: 'https://www.walmart.com/ip/Pokemon-Trading-Card-Games-Scarlet-Violet-8-5-Prismatic-Evolutions-Accessory-Pouch/14169661774?classType=REGULAR',
+      maxPrice: 30,
+    },
+    {
+      brand: 'pokemon',
+      model: 'poster',
+      series: 'prismatic evolutions',
+      url: 'https://www.walmart.com/ip/Pokemon-Trading-Card-Games-Scarlet-Violet-8-5-Prismatic-Evolutions-Poster-Box/14091452016',
+      maxPrice: 16,
+    },
+    {
+      brand: 'pokemon',
+      model: 'binder',
+      series: 'prismatic evolutions',
+      url: 'https://www.walmart.com/ip/Pokemon-Trading-Card-Games-Scarlet-Violet-8-5-Prismatic-Evolutions-Binder-Collection/14078321300?classType=REGULAR&athbdg=L1100',
+      maxPrice: 30,
+    },
+    {
+      brand: 'pokemon',
+      model: 'etb',
+      series: 'prismatic evolutions',
+      url: 'https://www.walmart.com/ip/Pokemon-Scarlet-and-Violet-8-5-Prismatic-Evolutions-Elite-Trainer-Box/13816151308',
+      maxPrice: 55,
+    },
+    {
+      brand: 'pokemon',
+      model: 'booster bundle',
+      series: '151',
+      url: 'https://www.walmart.com/ip/Pokemon-Trading-Card-Games-Scarlet-Violet-3-5-151-Booster-Bundle-with-6-Booster-Card-Packs/1160437186',
+      maxPrice: 30,
+    },
+    {
+      brand: 'pokemon',
+      model: 'premium collection',
+      series: 'paldean fates',
+      url: 'https://www.walmart.com/ip/Pokemon-Trading-Card-Games-SV4-5-Paldean-Fates-Skeledirge-EX-Premium-Collection/5286564403?classType=VARIANT&from=/search',
+      maxPrice: 48,
+    },
   ],
   name: 'walmart',
+  discordWebhook: process.env.DISCORD_WEB_HOOK_WALMART,
 };

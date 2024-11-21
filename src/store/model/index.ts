@@ -132,6 +132,7 @@ import {PCDiga} from './pcdiga';
 import {PCKing} from './pcking';
 import {PlayStation} from './playstation';
 import {Pny} from './pny';
+import {PokemonCenter} from './pokemon-center';
 import {PowerNO} from './power-no';
 import {ProshopDE} from './proshop-de';
 import {ProshopDK} from './proshop-dk';
@@ -307,6 +308,7 @@ export const storeList = new Map([
   [PCKing.name, PCKing],
   [PlayStation.name, PlayStation],
   [Pny.name, Pny],
+  [PokemonCenter.name, PokemonCenter],
   [PowerNO.name, PowerNO],
   [ProshopDE.name, ProshopDE],
   [ProshopDK.name, ProshopDK],

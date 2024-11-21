@@ -955,14 +955,14 @@ export const Amazon: Store = {
       series: '4080-16g',
       url: 'https://www.amazon.com/dp/B0BG95T5WD',
     },
-    {
-      brand: 'pokemon',
-      cartUrl:
-        'https://www.amazon.com/gp/aws/cart/add.html?ASIN.1=B0CQF5Y2DM&Quantity.1=1',
-      model: 'paldean fates',
-      series: 'scarlet-and-violet',
-      url: 'https://www.amazon.com/dp/B0CQF5Y2DM',
-    },
+    // {
+    //   brand: 'pokemon',
+    //   cartUrl:
+    //     'https://www.amazon.com/gp/aws/cart/add.html?ASIN.1=B0CQF5Y2DM&Quantity.1=1',
+    //   model: 'iron treads tin',
+    //   series: 'paldean fates',
+    //   url: 'https://www.amazon.com/dp/B0CQF5Y2DM',
+    // },
   ],
   name: 'amazon',
 };

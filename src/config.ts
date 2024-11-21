@@ -199,6 +199,7 @@ const browser = {
   ),
   open: envOrBoolean(process.env.OPEN_BROWSER),
   userAgent: '',
+  hideBrowserAutomation: envOrBoolean(process.env.HIDE_BROWSER_AUTOMATION, false)
 };
 
 const captchaHandler = {
@@ -444,7 +445,9 @@ const store = {
       'unvr-pro': envOrNumber(process.env.MAX_PRICE_SERIES_UNVR_PRO),
       xboxss: envOrNumber(process.env.MAX_PRICE_SERIES_XBOXSS),
       xboxsx: envOrNumber(process.env.MAX_PRICE_SERIES_XBOXSX),
-      'scarlet-and-violet': envOrNumber(process.env.MAX_PRICE_SERIES_SCARLET_AND_VIOLET),
+      '151': envOrNumber(process.env.MAX_PRICE_SERIES_151),
+      'paldean fates': envOrNumber(process.env.MAX_PRICE_SERIES_PALDEAN_FATES),
+      'prismatic evolutions': envOrNumber(process.env.MAX_PRICE_SERIES_PRISMATIC_EVOLUTIONS),
     },
   },
   microCenterLocation: envOrArray(process.env.MICROCENTER_LOCATION, ['web']),

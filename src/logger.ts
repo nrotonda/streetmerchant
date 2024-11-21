@@ -132,6 +132,18 @@ export const Print = {
 
     return `ℹ ${buildProductString(link, store)} :: IN STOCK, WAITING`;
   },
+  isDisabled(link: Link, store: Store, color?: boolean): string {
+    if (color) {
+      return (
+        '✖ ' +
+        buildProductString(link, store, true) +
+        ' :: ' +
+        chalk.red('enabled: false for item')
+      );
+    }
+
+    return `✖ ${buildProductString(link, store)} :: OUT OF STOCK`;
+  },
   maxPrice(
     link: Link,
     store: Store,

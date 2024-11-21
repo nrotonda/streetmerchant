@@ -435,6 +435,11 @@ async function isItemInStock(
     type: 'textContent',
   };
 
+  if (link.enabled === false) {
+    logger.info(Print.isDisabled(link, store, true));
+    return false
+  }
+
   if (store.labels.captcha) {
     if (await pageIncludesLabels(page, store.labels.captcha, baseOptions)) {
       logger.warn(Print.captcha(link, store, true));
@@ -502,8 +507,15 @@ async function isItemInStock(
 
     link.price = await getPrice(page, store.labels.maxPrice, baseOptions);
 
+    const maxPricePerItem = link.maxPrice ?? 0
+
     if (link.price && link.price > maxPrice && maxPrice > 0) {
       logger.info(Print.maxPrice(link, store, maxPrice, true));
+      return false;
+    }
+
+    if (link.price && link.price > maxPricePerItem && maxPricePerItem > 0) {
+      logger.info(Print.maxPrice(link, store, maxPricePerItem, true));
       return false;
     }
   }

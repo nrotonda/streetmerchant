@@ -73,7 +73,9 @@ export type Series =
   | 'unvr-pro'
   | 'xboxsx'
   | 'xboxss'
-  | 'scarlet-and-violet';
+  | '151'
+  | 'paldean fates'
+  | 'prismatic evolutions';
 
 export type Model =
   | 'test:model'
@@ -269,7 +271,18 @@ export type Model =
   | 'xlr8 uprising'
   | 'xtreme'
   | 'qick'
-  | 'paldean fates';
+  | 'iron treads tin'
+  | 'blooming waters'
+  | 'tin'
+  | '2 pack blister'
+  | '3 pack blister'
+  | 'poster'
+  | 'etb'
+  | 'etb-pokemon-center'
+  | 'booster bundle'
+  | 'accessory pouch'
+  | 'binder'
+  | 'premium collection';
 
 export type Link = {
   brand: Brand;
@@ -282,6 +295,8 @@ export type Link = {
   series: Series;
   screenshot?: string;
   url: string;
+  maxPrice?: number | null;
+  enabled?: boolean | null;
 };
 
 export type CaptchaHandlerElements = {
@@ -346,4 +361,5 @@ export type Store = {
   proxyList?: string[];
   currentProxyIndex?: number;
   captchaDeterrent?: CaptchaDeterrent;
+  discordWebhook?: string
 };

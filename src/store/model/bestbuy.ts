@@ -3,10 +3,14 @@ import {Store} from './store';
 export const BestBuy: Store = {
   currency: '$',
   labels: {
-    inStock: {
+    inStock: [
+      {
+        container: '[data-button-state="ADD_TO_CART"]',
+        text: ['add to cart'],
+      }, {
       container: '[data-sticky-media-gallery] .fulfillment-add-to-cart-button',
       text: ['add to cart'],
-    },
+    }],
     maxPrice: {
       container:
         '[data-sticky-media-gallery] .priceView-price .priceView-hero-price span',
@@ -670,6 +674,37 @@ export const BestBuy: Store = {
       series: '4080-16g',
       url: 'https://api.bestbuy.com/click/-/6521431/pdp',
     },
+    {
+      brand: 'pokemon',
+      model: 'blooming waters',
+      series: '151',
+      url: 'https://www.bestbuy.com/site/pokemon-trading-card-game-blooming-waters-premium-collection/6609201.p?cmp=RMX&skuId=6609201',
+    },
+    {
+      brand: 'pokemon',
+      model: 'tin',
+      series: '151',
+      url: 'https://www.bestbuy.com/site/pokemon-trading-card-game-151-mini-tins-styles-may-vary/6548369.p?cmp=RMX&skuId=6548369',
+    },
+    {
+      brand: 'pokemon',
+      model: '2 pack blister',
+      series: 'prismatic evolutions',
+      url: 'https://www.bestbuy.com/site/pokemon-trading-card-game-scarlet-violet-prismatic-evolutions-2-pack-blister/6607716.p?cmp=RMX&skuId=6607716',
+    },
+    {
+      brand: 'pokemon',
+      model: 'tin',
+      series: 'prismatic evolutions',
+      url: 'https://www.bestbuy.com/site/pokemon-trading-card-game-scarlet-violet-prismatic-evolutions-mini-tin-styles-may-vary/6607719.p?cmp=RMX&skuId=6607719',
+    },
+    {
+      brand: 'pokemon',
+      model: 'premium collection',
+      series: 'paldean fates',
+      url: 'https://www.bestbuy.com/site/pokemon-trading-card-game-scarlet-violet-paldean-fates-ex-premium-collection-styles-may-vary/6568007.p?skuId=6568007',
+    },
   ],
   name: 'bestbuy',
+  discordWebhook: process.env.DISCORD_WEB_HOOK_BESTBUY,
 };

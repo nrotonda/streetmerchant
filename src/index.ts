@@ -102,6 +102,24 @@ export async function launchBrowser(): Promise<Browser> {
     );
   }
 
+  let ignoreDefaultArgs: string[] = []
+
+  if (config.browser.hideBrowserAutomation) {
+    args.push('--disable-blink-features')
+    args.push('--disable-blink-features=AutomationControlled')
+    args.push('--disable-extensions')
+    args.push('--use-automation-extension=False')
+    args.push('--no-sandbox')
+    args.push('--enable-logging')
+    args.push('--disable-infobar')
+    args.push('--disable-setuid-sandbox')
+    args.push('--disable-infobars')
+    args.push('--no-default-browser-check'),
+    args.push('--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3312.0 Safari/537.36"')
+
+    ignoreDefaultArgs = ["--enable-automation"]
+  }
+
   if (args.length > 0) {
     logger.info('ℹ puppeteer config: ', args);
   }
@@ -113,6 +131,7 @@ export async function launchBrowser(): Promise<Browser> {
       height: config.page.height,
       width: config.page.width,
     },
+    ignoreDefaultArgs: ignoreDefaultArgs,
     headless: config.browser.isHeadless,
   });
 

@@ -1,12 +1,12 @@
-import {Link, Store} from '../store/model';
+import { Link, Store } from '../store/model';
 import Discord from 'discord.js';
-import {config} from '../config';
-import {logger} from '../logger';
-import {DMPayload} from '.';
-import {RawUserData} from 'discord.js/typings/rawDataTypes';
+import { config } from '../config';
+import { logger } from '../logger';
+import { DMPayload } from '.';
+import { RawUserData } from 'discord.js/typings/rawDataTypes';
 
-const {notifyGroup, webhooks, notifyGroupSeries} = config.notifications.discord;
-const {pollInterval, responseTimeout, token, userId} = config.captchaHandler;
+const { notifyGroup, webhooks, notifyGroupSeries } = config.notifications.discord;
+const { pollInterval, responseTimeout, token, userId } = config.captchaHandler;
 const clientOptions: Discord.ClientOptions = {
   intents: new Discord.Intents(),
 };
@@ -48,7 +48,7 @@ export function sendDiscordMessage(link: Link, store: Store) {
         if (link.cartUrl) embed.addField('Add to Cart', link.cartUrl);
         embed.addField('Brand', link.brand, true);
         embed.addField('Model', link.model, true);
-        embed.addField('Series', link.series, true);
+        embed.addField('Series', `@${link.series}`, true);
 
         embed.setTimestamp();
 
@@ -67,26 +67,14 @@ export function sendDiscordMessage(link: Link, store: Store) {
         }
 
         const promises = [];
-        for (const webhook of webhooks) {
-          const {id, token} = getIdAndToken(webhook);
-          const client = new Discord.WebhookClient({id, token}, clientOptions);
 
-          promises.push(
-            new Promise((resolve, reject) => {
-              client
-                .send({
-                  content: notifyText.length ? notifyText.join(' ') : null,
-                  embeds: [embed],
-                  username: 'streetmerchant',
-                })
-                .then(resp => {
-                  logger.info('✔ discord message sent resp.id: ' + resp.id);
-                  resolve(resp);
-                })
-                .catch(err => reject(err))
-                .finally(() => client.destroy());
-            })
-          );
+        const storeWebhook = store.discordWebhook
+        if (storeWebhook && storeWebhook.length > 0) {
+          promises.push(sendDataToWebhook(storeWebhook, notifyText, embed))
+        }
+
+        for (const webhook of webhooks) {
+          promises.push(sendDataToWebhook(webhook, notifyText, embed))
         }
 
         await Promise.all(promises).catch(err =>
@@ -97,6 +85,32 @@ export function sendDiscordMessage(link: Link, store: Store) {
       }
     })();
   }
+}
+
+function sendDataToWebhook(
+  webhook: string,
+  notifyText: string[],
+  embed: Discord.MessageEmbed
+): any {
+  const { id, token } = getIdAndToken(webhook);
+  const client = new Discord.WebhookClient({ id, token }, clientOptions);
+
+  return (
+    new Promise((resolve, reject) => {
+      client
+        .send({
+          content: notifyText.length ? notifyText.join(' ') : null,
+          embeds: [embed],
+          username: 'streetmerchant',
+        })
+        .then(resp => {
+          logger.info('✔ discord message sent resp.id: ' + resp.id);
+          resolve(resp);
+        })
+        .catch(err => reject(err))
+        .finally(() => client.destroy());
+    })
+  );
 }
 
 export async function sendDMAsync(
