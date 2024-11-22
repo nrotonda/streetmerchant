@@ -28,7 +28,7 @@ export const PokemonCenter: Store = {
     {
       brand: 'pokemon',
       model: 'etb-pokemon-center',
-      series: 'prismatic evolutions',
+      series: 'Prismatic Evolution',
       url: 'https://www.pokemoncenter.com/product/100-10019/pokemon-tcg-scarlet-and-violet-prismatic-evolutions-pokemon-center-elite-trainer-box',
     },
   ],

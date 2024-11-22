@@ -17,6 +17,10 @@ export const Target: Store = {
         text: ['Add to cart'],
       },
     ],
+    outOfStock: [{
+      container: '[data-test="preorderButtonDisabled"] [disabled]',
+      text: ['Preorder now'],
+    }],
     maxPrice: {
       container: '[data-test="product-price"]',
     },
@@ -43,19 +47,19 @@ export const Target: Store = {
     {
       brand: 'pokemon',
       model: 'poster',
-      series: 'prismatic evolutions',
+      series: 'Prismatic Evolution',
       url: 'https://www.target.com/p/2025-pokemon-scarlet-violet-s8-5-poster-collection--no-aasa/-/A-93803457',
     },
     {
       brand: 'pokemon',
       model: 'etb',
-      series: 'prismatic evolutions',
+      series: 'Prismatic Evolution',
       url: 'https://www.target.com/p/2024-pok-scarlet-violet-s8-5-elite-trainer-box/-/A-93954435',
     },
     {
       brand: 'pokemon',
       model: 'etb',
-      series: 'paldean fates',
+      series: 'Paldean Fates',
       url: 'https://www.target.com/p/pok-233-mon-trading-card-game-scarlet-38-violet-8212-paldean-fates-elite-trainer-box/-/A-89432659',
     },
   ],

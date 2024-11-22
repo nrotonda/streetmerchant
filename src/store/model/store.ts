@@ -74,8 +74,9 @@ export type Series =
   | 'xboxsx'
   | 'xboxss'
   | '151'
-  | 'paldean fates'
-  | 'prismatic evolutions';
+  | 'Paldean Fates'
+  | 'Prismatic Evolution'
+  | 'Evolving Skies';
 
 export type Model =
   | 'test:model'
